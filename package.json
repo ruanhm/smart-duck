@@ -2,7 +2,7 @@
   "name": "smart-duck",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "server.js",
   "dependencies": {
     "koa": "^2.3.0",
     "koa-bodyparser": "^2.5.0",
