@@ -1,0 +1,26 @@
+{
+  "name": "koa-may",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "koa": "^2.3.0",
+    "koa-bodyparser": "^2.5.0",
+    "koa-router": "^7.1.1",
+    "koa-static-cache": "^5.0.1",
+    "koa-views": "^6.0.2",
+    "lodash": "^4.17.4",
+    "next": "^4.2.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "tedious": "^2.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "set process.env.NODE_ENV=production && node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
