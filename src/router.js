@@ -4,7 +4,7 @@ const Router = require('koa-router');
 const router = new Router();
 const DBHelper = require('../lib/db-helper');
 const TYPES = require('tedious').TYPES;
-const commons = require('../lib/common');
+const commons = require('../lib/commons');
 const Biz = require('../lib/biz').Biz;
 const BizResult = require('../lib/biz-result');
 controller(router);
