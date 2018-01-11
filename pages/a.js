@@ -1,1 +1,2 @@
-export default () => <div>a</div>
+import Layout from './_layout';
+export default () => <Layout><div>a</div></Layout>

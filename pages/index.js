@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Head from 'next/head'
 import $ from 'jquery'
 import { Button, Radio, Icon,Table } from 'antd';
-//import css from 'antd/dist/antd.css';
+import Layout from './_layout';
 
 const columns = [{
   title: 'Name',
@@ -49,7 +49,26 @@ const data = [{
   age: 32,
   address: 'Sidney No. 1 Lake Park',
 }];
+
+const message = do {
+  if (randomNo < 30) {
+    // eslint-disable-next-line no-unused-expressions
+    'Do not give up. Try again.'
+  } else if (randomNo < 60) {
+    // eslint-disable-next-line no-unused-expressions
+    'You are a lucky guy'
+  } else {
+    // eslint-disable-next-line no-unused-expressions
+    'You are soooo lucky!'
+  }
+}
 export default class Index extends React.Component {
+  static async getInitialProps({ req }) {
+    const userAgent = req ? req.headers['user-agent'] : navigator.userAgent
+    return { userAgent }
+  }
+
+
   getData() {
     $.ajax({
       type: 'Get',
@@ -76,13 +95,10 @@ export default class Index extends React.Component {
     });
   }
   render() {
-    return <div>
+
+    return <Layout>
       <ul>
-        <Head>
-          <title>My page title</title>
-          <script src="/js/jquery-3.1.0.js" type="text/javascript"></script>
-          <link href="/static/antd.css" rel="stylesheet" type="text/css" />
-        </Head>
+        
         <li><Link href='/b' as='/a'><a>a</a></Link></li>
         <li><Link href='/a' as='/b'><a>b</a></Link></li>
       </ul>
@@ -92,7 +108,7 @@ export default class Index extends React.Component {
         <Icon type="left" />2
       </Button>
       <Table columns={columns} dataSource={data} />
-    </div>;
+    </Layout>;
   }
 }
 
