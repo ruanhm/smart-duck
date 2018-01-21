@@ -2,8 +2,9 @@ import React from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
 import $ from 'jquery'
-import { Button, Radio, Icon,Table } from 'antd';
+import { Button, Radio, Icon, Table } from 'antd';
 import Layout from './_layout';
+import 'isomorphic-unfetch'
 
 const columns = [{
   title: 'Name',
@@ -50,29 +51,26 @@ const data = [{
   address: 'Sidney No. 1 Lake Park',
 }];
 
-const message = do {
-  if (randomNo < 30) {
-    // eslint-disable-next-line no-unused-expressions
-    'Do not give up. Try again.'
-  } else if (randomNo < 60) {
-    // eslint-disable-next-line no-unused-expressions
-    'You are a lucky guy'
-  } else {
-    // eslint-disable-next-line no-unused-expressions
-    'You are soooo lucky!'
-  }
-}
+
 export default class Index extends React.Component {
   static async getInitialProps({ req }) {
-    const userAgent = req ? req.headers['user-agent'] : navigator.userAgent
-    return { userAgent }
+    if (req) {
+      /* const res = await fetch('https://api.github.com/repos/zeit/next.js')
+      const json = await res.json()
+      return { stars: json.stargazers_count } */
+      const commons= require('../lib/commons');
+      console.log(commons)
+      var bizList = await commons.getBizs();
+      console.log(bizList.Data[0][0])
+      return { stars: bizList.Data[0][0].BizName }
+    }
   }
 
 
   getData() {
     $.ajax({
       type: 'Get',
-      url: '/AjaxGridData/FNursings',
+      url: '/ToolsAjaxGet/FNursings',
       dataType: 'json',
       data: {
         FNTypeID: 1,
@@ -88,7 +86,7 @@ export default class Index extends React.Component {
         PatientName: ''
       },
       success: function (data) {
-        
+
 
       },
 
@@ -98,14 +96,14 @@ export default class Index extends React.Component {
 
     return <Layout>
       <ul>
-        
+
         <li><Link href='/b' as='/a'><a>a</a></Link></li>
         <li><Link href='/a' as='/b'><a>b</a></Link></li>
       </ul>
       {/* <button onClick={this.getData}></button> */}
       <Button type="primary" onClick={this.getData} icon="download">1</Button>
-      <Button type="primary" onClick={this.getData} style={{width:'30px',height:'30px'}}>
-        <Icon type="left" />2
+      <Button type="primary" onClick={this.getData} >
+        <Icon type="left" />{this.props.stars}
       </Button>
       <Table columns={columns} dataSource={data} />
     </Layout>;

@@ -22,16 +22,7 @@ router.get('/AjaxGridData/:QueryName', async (ctx, next) => {
 })
 
 router.get('/ToolsAjaxGet/:QueryName', async (ctx, next) => {
-    try {
-        var dbHelper = new DBHelper();
-        await dbHelper.executeSqlTran(`insert into c values(1,1)
-                insert into c values(1,null)`);
-        dbHelper.close();
-    }
-    catch (ex) {
-        console.error(ex);
-        dbHelper.close();
-    }
+    ctx.response.body = await commons.getBizs();
 
 })
 
