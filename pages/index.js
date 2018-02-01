@@ -3,8 +3,8 @@ import Link from 'next/link'
 import Head from 'next/head'
 import $ from 'jquery'
 import { Button, Radio, Icon, Table } from 'antd';
-import Layout from './_layout';
-import 'isomorphic-unfetch'
+import Layout from './base-layout';
+//import 'isomorphic-unfetch'
 
 const columns = [{
   title: 'Name',
