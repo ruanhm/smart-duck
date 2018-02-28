@@ -2,7 +2,7 @@
 const controller = require('./controller');
 const Router = require('koa-router');
 const router = new Router();
-const DBHelper = require('../lib/db-helper');
+const DBHelper = require('../lib/db-sqlserver-helper');
 const TYPES = require('tedious').TYPES;
 const commons = require('../lib/commons');
 const Biz = require('../lib/biz').Biz;
