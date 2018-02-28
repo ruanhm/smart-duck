@@ -15,7 +15,7 @@ module.exports = {
     }
     const IgnorePlugin=require('webpack').IgnorePlugin
     config.plugins.push(
-     new IgnorePlugin(/tedious/)
+     new IgnorePlugin(/tedious|redis$/)
     )
     return config
   },
