@@ -1,25 +1,9 @@
 {
-  "presets": [    
-    "next/babel",
-    ["env",{
-      "production": {
-        "presets": ["minify"]
-      },
-      "targets": {
-        "browsers": ["last 2 versions", "safari >= 7"],
-        "node":true
-      }
-    }],
-    "stage-0"
-  ],
-  "plugins": [
-    "transform-decorators-legacy",
-    [
-      "import",
-      {
+    "presets": ["next/babel"],
+    "plugins": [
+        "transform-decorators-legacy",
+        ["import", {       
         "libraryName": "antd",
-        "style": false
-      }
-    ]
-  ]
-}
+        "style": "css"
+      }]]
+  }

@@ -10,5 +10,8 @@
 
 }*/
 
-const withCSS = require('@zeit/next-css')
-module.exports = withCSS()
+const withCSS = require('@zeit/next-css');
+if (typeof require !== 'undefined') {
+  require.extensions['.css'] = (file) => {}
+}
+module.exports = withCSS();
