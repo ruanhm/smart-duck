@@ -4,6 +4,7 @@ const { Header, Content, Sider } = Layout;
 import React from 'react'
 import BaseLayout from '../base-layout';
 import ObjectManage from './object-manage';
+import 'antd/dist/antd.css'; 
 // import $ from 'jquery'
 
 

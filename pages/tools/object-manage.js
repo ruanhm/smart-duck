@@ -5,7 +5,6 @@ const { Header, Content, Sider } = Layout;
 const TreeNode = Tree.TreeNode;
 const Search = Input.Search;
 const TabPane = Tabs.TabPane;
-import 'antd/dist/antd.css'; 
 export default class ObjectManage extends React.Component {
     constructor(props) {
         super(props);
