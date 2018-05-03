@@ -1,9 +1,11 @@
 const commons = require('../lib/commons');
 
-var getBizs=async (ctx, next)=>{
+let getBizs=async (ctx, next)=>{
     ctx.response.body = await commons.getBizs(ctx.query.BizType);
 }
-
+let getBiz=async (ctx, next)=>{
+    ctx.response.body = await commons.getBiz(ctx.query.BizName);
+}
 module.exports = {
-    get:new Set([getBizs])
+    get:new Set([getBizs,getBiz])
 }
