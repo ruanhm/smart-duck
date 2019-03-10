@@ -1,5 +1,5 @@
-*.js linguist-language=nodejs
+*.js linguist-language=JavaScript
 
-*.css linguist-language=nodejs
+*.css linguist-language=JavaScript
 
-*.html linguist-language=nodejs
+*.html linguist-language=JavaScript
